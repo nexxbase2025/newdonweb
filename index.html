@@ -1,0 +1,637 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DON BELTRÁN — Portafolio Multimedia</title>
+  <meta name="description" content="Portafolio de Don Beltrán: audio, jingles, radios online, videos verticales, flyers, logos, páginas web y apps PWA. Escucha y mira los demos ahora."/>
+  <meta property="og:title" content="DON BELTRÁN — Portafolio Multimedia"/>
+  <meta property="og:description" content="Escucha mis jingles, demos, mira mis videos verticales, flyers, logos, webs y apps PWA. Contáctame por WhatsApp."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="/og-image.jpg"/>
+  <meta name="theme-color" content="#0ea5e9"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070b11; --card:#0f1624; --muted:#a6b3c6; --text:#e6f0ff;
+      --brand:#00e5ff; --brand-2:#6b00ff; --accent:#00ffa3; --danger:#ff3b3b;
+      --shadow:0 10px 40px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);
+      --radius:20px; --radius-sm:14px; --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:radial-gradient(1200px 600px at 10% -10%, rgba(0,229,255,.16), transparent),
+      radial-gradient(800px 500px at 110% 10%, rgba(107,0,255,.16), transparent), var(--bg);
+      color:var(--text); font-family:"Outfit", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell;
+      scroll-behavior:smooth; overflow-x:hidden}
+    a{color:var(--brand); text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:50; background:linear-gradient(180deg, rgba(7,11,17,.9), rgba(7,11,17,.4)); box-shadow:var(--shadow)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand img{height:40px; width:40px; object-fit:cover; border-radius:50%; filter:drop-shadow(0 0 14px rgba(0,229,255,.45))}
+    .brand h1{font-size:18px; letter-spacing:.5px; margin:0}
+
+    /* Desktop nav */
+    .nav-links{display:none; gap:8px}
+    .nav-links a{padding:10px 14px; border-radius:999px; background:rgba(255,255,255,.04); color:var(--text)}
+    .nav-links a:hover{box-shadow:0 0 0 2px rgba(0,229,255,.35)}
+
+    /* Burger only for mobile */
+    .burger{display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08)}
+    .burger span{width:22px; height:2px; background:var(--text); position:relative; transition:.3s}
+    .burger span:before, .burger span:after{content:""; position:absolute; left:0; width:22px; height:2px; background:var(--text); transition:.3s}
+    .burger span:before{top:-7px} .burger span:after{top:7px}
+
+    /* Drawer menu */
+    .drawer{position:fixed; inset:0; background:rgba(0,0,0,.5); opacity:0; pointer-events:none; transition:.25s}
+    .drawer.open{opacity:1; pointer-events:auto}
+    .panel{position:absolute; right:-100%; top:0; height:100%; width:min(88vw, 380px); background:linear-gradient(180deg, #0a0f19, #0f1624); box-shadow:var(--shadow); padding:24px; transition:.3s}
+    .drawer.open .panel{right:0}
+    .panel h3{margin:0 0 16px 0; font-size:18px; color:#b7c5ff}
+    .menu a{display:flex; align-items:center; gap:12px; padding:14px 12px; margin:6px 0; border-radius:12px; background:rgba(255,255,255,.04)}
+
+    /* Hero */
+    .hero{position:relative; overflow:hidden; padding:54px 0 28px 0}
+    .glow{position:absolute; inset:-40%; background:conic-gradient(from 0deg at 50% 50%, rgba(0,229,255,.05), rgba(107,0,255,.08), rgba(0,255,163,.05), rgba(0,229,255,.05)); filter:blur(60px); animation:spin 24s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .hero-inner{position:relative; display:grid; gap:18px; align-items:center}
+    .tag{display:inline-block; font-size:12px; padding:8px 12px; border-radius:999px; background:linear-gradient(90deg, rgba(0,229,255,.18), rgba(107,0,255,.18)); border:1px solid rgba(255,255,255,.1)}
+    .title{font-size:34px; line-height:1.1; margin:6px 0 4px 0}
+    .subtitle{color:var(--muted); max-width:760px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+    .btn{padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); color:var(--text); box-shadow:var(--shadow)}
+    .btn.primary{background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#001018; font-weight:700}
+    .btn.whatsapp{display:inline-flex; align-items:center; gap:10px}
+
+    /* Sections */
+    section{scroll-margin-top:76px; margin:26px 0}
+    .section-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
+    .section-title{display:flex; align-items:center; gap:10px}
+    .section-title h2{margin:0; font-size:22px}
+    .share{display:inline-flex; align-items:center; gap:8px}
+    .icon-btn{width:40px; height:40px; border-radius:12px; display:inline-grid; place-items:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08)}
+
+    /* Cards grid */
+    .grid{display:grid; gap:14px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:14px; box-shadow:var(--shadow)}
+    .card h3{margin:4px 0 10px 0; font-size:16px}
+    .meta{color:var(--muted); font-size:13px}
+
+    /* Audio list */
+    .audio-list{display:grid; gap:12px}
+    audio{width:100%}
+
+    /* Video embeds */
+    .video{position:relative; overflow:hidden; border-radius:var(--radius-sm); background:#000}
+    .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+    /* Vertical videos 9:16, sin scroll interno */
+    .video.vertical{aspect-ratio:9/16}
+
+    /* Gallery */
+    .gallery{display:grid; gap:12px; grid-template-columns:repeat(2, 1fr)}
+    .gallery img{border-radius:14px; border:1px solid rgba(255,255,255,.08)}
+
+    /* Portfolio */
+    .portfolio{display:grid; gap:14px}
+
+    /* Contact */
+    form{display:grid; gap:12px}
+    input, textarea, select{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:var(--text); padding:12px 14px; border-radius:12px; outline:none}
+    textarea{min-height:120px; resize:vertical}
+    .note{font-size:12px; color:var(--muted)}
+
+    /* Footer */
+    footer{margin:30px 0 80px; color:var(--muted); text-align:center}
+
+    /* Desktop layout */
+    @media (min-width: 980px){
+      .container{padding:0 32px}
+      .title{font-size:52px}
+      .nav-links{display:flex}
+      .burger{display:none} /* ONLY SHOW HAMBURGER ON MOBILE */
+      .hero-inner{grid-template-columns: 1.2fr .8fr}
+      .gallery{grid-template-columns:repeat(4, 1fr)}
+      .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
+      .grid.cols-2{grid-template-columns:repeat(2, 1fr)}
+    }
+
+    /* INTRO CINEMATOGRÁFICA */
+    #intro{position:fixed; inset:0; background:radial-gradient(800px 600px at 50% 50%, rgba(0,229,255,.18), rgba(0,0,0,.92)); display:grid; place-items:center; z-index:100; overflow:hidden}
+    #intro.hidden{animation:fadeOut 1s ease forwards}
+    @keyframes fadeOut{to{opacity:0; visibility:hidden}}
+    .intro-logo{position:relative; width:min(54vmin,340px); aspect-ratio:1/1; filter:drop-shadow(0 0 25px rgba(0,229,255,.55))}
+    .intro-logo img{width:100%; height:100%; object-fit:cover; border-radius:50%}
+    .ring{position:absolute; inset:-20%; border-radius:50%;
+      background:conic-gradient(from 0deg, rgba(0,229,255,.0), rgba(107,0,255,.35), rgba(0,255,163,.35), rgba(0,229,255,.0));
+      filter:blur(14px); animation:ringSpin 5s cubic-bezier(.2,.6,.2,1) infinite}
+    @keyframes ringSpin{to{transform:rotate(1turn)}}
+    .flash{position:absolute; inset:0; border-radius:50%; box-shadow:0 0 120px 40px rgba(0,229,255,.25) inset; animation:pulse 1.8s ease-in-out 2}
+    @keyframes pulse{50%{box-shadow:0 0 220px 60px rgba(107,0,255,.35) inset}}
+    .particles{position:absolute; inset:0; pointer-events:none}
+    .particle{position:absolute; width:3px; height:3px; border-radius:50%; background:#00e5ff; opacity:.9; transform:translate(-50%, -50%); animation:fly 5s linear forwards}
+    @keyframes fly{to{transform:translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))); opacity:0}}
+    .skip{position:absolute; bottom:28px; right:28px; padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06); color:var(--text)}
+  
+    /* CHAT WEB (con n8n) */
+    #chatFab{
+      position:fixed; right:18px; bottom:18px; z-index:9999;
+      padding:12px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(90deg, var(--brand), var(--brand-2));
+      color:#001018; font-weight:800; cursor:pointer; box-shadow:var(--shadow)
+    }
+    #chatWin{
+      position:fixed; right:18px; bottom:74px; z-index:9999;
+      width:360px; max-width:92vw; height:520px; max-height:75vh;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10); border-radius:18px; box-shadow:var(--shadow);
+      display:none; overflow:hidden; backdrop-filter: blur(10px);
+    }
+    #chatHead{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:12px 12px; background:rgba(0,0,0,.35); border-bottom:1px solid rgba(255,255,255,.08)
+    }
+    #chatHead b{letter-spacing:.3px}
+    #chatClose{
+      width:38px; height:38px; border-radius:12px; display:grid; place-items:center;
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10);
+      color:var(--text); cursor:pointer
+    }
+    #chatMsgs{
+      height:calc(100% - 116px); overflow:auto; padding:12px; background:rgba(0,0,0,.18)
+    }
+    .chatRow{display:flex; margin:10px 0}
+    .chatRow.me{justify-content:flex-end}
+    .chatBubble{
+      max-width:82%; padding:10px 12px; border-radius:14px; white-space:pre-wrap;
+      border:1px solid rgba(255,255,255,.10); box-shadow:0 8px 22px rgba(0,0,0,.25)
+    }
+    .chatRow.me .chatBubble{background:rgba(0,229,255,.16)}
+    .chatRow.bot .chatBubble{background:rgba(255,255,255,.06)}
+    #chatFoot{
+      display:flex; gap:8px; padding:10px; border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.22)
+    }
+    #chatInput{
+      flex:1; padding:12px 12px; border-radius:12px;
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:var(--text);
+      outline:none
+    }
+    #chatSend{
+      padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(90deg, var(--accent), var(--brand)); color:#001018; font-weight:800; cursor:pointer
+    }
+    #chatHint{font-size:12px; color:var(--muted); padding:0 12px 10px}
+
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Don Beltrán — Portafolio Multimedia",
+    "url": "https://tusitio-ejemplo.com/",
+    "logo": "https://tusitio-ejemplo.com/logo.png",
+    "areaServed": "United States, Ecuador",
+    "sameAs": ["https://www.facebook.com/", "https://www.instagram.com/"],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+593983706294",
+      "contactType": "customer service",
+      "availableLanguage": ["es","en"]
+    }]
+  }
+  </script>
+</head>
+<body>
+  <!-- INTRO CINEMATOGRÁFICA (≈5s) -->
+  <div id="intro" aria-label="Introducción">
+    <div class="intro-logo">
+      <span class="ring"></span>
+      <span class="flash"></span>
+      <!-- LOGO PROPORCIONADO -->
+      <img src="mi logo.png" alt="Logo Don Beltrán">
+      <div class="particles" id="particles"></div>
+    </div>
+    <button class="skip" onclick="hideIntro(true)">Saltar intro</button>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logocabeceraiz.png" alt="Logo Don Beltrán"/>
+        <h1>DON BELTRÁN</h1>
+      </div>
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#audio">Audio</a>
+        <a href="#jingles">Jingles</a>
+        <a href="#radios">Radios</a>
+        <a href="#videos">Videos</a>
+        <a href="#flyers">Flyers</a>
+        <a href="#logos">Logos</a>
+        <a href="#webs">Webs</a>
+        <a href="#pwa">Apps PWA</a>
+        <a href="#politica">Política</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-haspopup="true" aria-controls="drawer" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+    <div class="drawer" id="drawer" aria-hidden="true" role="dialog">
+      <aside class="panel" aria-label="Menú">
+        <h3>Navegación</h3>
+        <div class="menu">
+          <a href="#audio" onclick="closeDrawer()">🎙️ Demos de audio</a>
+          <a href="#jingles" onclick="closeDrawer()">🎵 Jingles</a>
+          <a href="#radios" onclick="closeDrawer()">📻 Radios</a>
+          <a href="#videos" onclick="closeDrawer()">🎬 Videos</a>
+          <a href="#flyers" onclick="closeDrawer()">🖼️ Flyers</a>
+          <a href="#logos" onclick="closeDrawer()">⚡ Logos</a>
+          <a href="#webs" onclick="closeDrawer()">🌐 Páginas web</a>
+          <a href="#pwa" onclick="closeDrawer()">📱 Apps PWA</a>
+          <a href="#politica" onclick="closeDrawer()">🔐 Política de seguridad</a>
+          <a href="#contacto" onclick="closeDrawer()">💬 Contacto</a>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div>
+          <span class="tag">Marketing Digital • Audio • Jingles • PWA • Video Vertical</span>
+          <h2 class="title">Tu marca con presencia <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">ultra moderna</span></h2>
+          <p class="subtitle">Explora mis demos de voz, jingles, radios online, videos verticales, flyers, logos y sitios web. Todo organizado por secciones para que puedas <strong>escuchar y ver</strong> mis trabajos al instante y compartir enlaces directos.</p>
+          <div class="cta">
+            <a class="btn primary" href="#audio">Escuchar demos</a>
+            <a class="btn whatsapp" id="whatsappTop" target="_blank" rel="noopener">💬 WhatsApp</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Presentación rápida</h3>
+  
+          <div class="video vertical" style="margin-top:8px">
+            <!-- DEMO vertical opcional (9:16) - reemplazar o dejar vacío -->
+            <iframe title="Intro" src="about:blank" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIO -->
+    <section id="audio" class="container">
+      <div class="section-head">
+        <div class="section-title"><h2>🎙️ Demos de audio</h2><span class="meta">Producción, Radios, Djs, Etc.</span></div>
+        <div class="share"><button class="icon-btn" aria-label="Copiar enlace" onclick="copyLink('#audio')">🔗</button></div>
+      </div>
+      <div class="card">
+        <div class="audio-list">
+          <!-- Reemplaza los src por tus MP3 locales o CDN -->
+          <div><strong>Demo Comercial 01</strong><audio controls preload="none" src="media/audio/demo-comercial-01.mp3"></audio></div>
+          <div><strong>Ident Corporativo 02</strong><audio controls preload="none" src="media/audio/ident-corporativo-02.mp3"></audio></div>
+          <div><strong>Promo Radio 03</strong><audio controls preload="none" src="media/audio/promo-radio-03.mp3"></audio></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JINGLES -->
+    <section id="jingles" class="container">
+      <div class="section-head">
+        <div class="section-title"><h2>🎵 Jingles musicales</h2><span class="meta">Temas originales para marcas</span></div>
+        <div class="share"><button class="icon-btn" onclick="copyLink('#jingles')">🔗</button></div>
+      </div>
+      <div class="card">
+        <div class="audio-list">
+          <div><strong>Jingle Restaurante</strong><audio controls preload="none" src="media/jingles/jingle-restaurante.mp3"></audio></div>
+          <div><strong>Jingle Temporada</strong><audio controls preload="none" src="media/jingles/jingle-temporada.mp3"></audio></div>
+          <div><strong>Jingle Identidad</strong><audio controls preload="none" src="media/jingles/jingle-identidad.mp3"></audio></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RADIOS -->
+    <section id="radios" class="container">
+      <div class="section-head">
+        <div class="section-title"><h2>📻 Radios creadas</h2><span class="meta">Enlaces a streams</span></div>
+        <div class="share"><button class="icon-btn" onclick="copyLink('#radios')">🔗</button></div>
+      </div>
+      <div class="grid cols-3">
+        <article class="card"><h3>RADIO MAMBO</h3><p class="meta">Icecast</p><a class="btn" target="_blank" rel="noopener" href="https://stream.zeno.fm/utwmdnuwlafuv">Abrir stream</a></article>
+        <article class="card"><h3>RADIO MAX</h3><p class="meta">Icecast</p><a class="btn" target="_blank" rel="noopener" href="https://stream.zeno.fm/yv4pxfcq6igvv">Abrir stream</a></article>
+        <article class="card"><h3>LA WARMY RADIO</h3><p class="meta">Icecast</p><a class="btn" target="_blank" rel="noopener" href=" https://stream.zeno.fm/v2o49xw27o6uv">Abrir player</a></article>
+      </div>
+    </section>
+
+    <!-- VIDEOS (VERTICALES) -->
+    <section id="videos" class="container">
+      <div class="section-head">
+        <div class="section-title"><h2>🎬 Videos</h2><span class="meta"></span></div>
+        <div class="share"><button class="icon-btn" onclick="copyLink('#videos')">🔗</button></div>
+      </div>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3>Spot Restaurante (vertical)</h3>
+          <div class="video vertical"><iframe title="Spot 1" src="https://archive.org/embed/ElephantsDream_2017_720p" allowfullscreen></iframe></div>
+        </article>
+        <article class="card">
+          <h3>Promo Evento (vertical)</h3>
+          <div class="video vertical"><iframe title="Spot 2" src="https://archive.org/embed/Sintel" allowfullscreen></iframe></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FLYERS -->
+    <section id="flyers" class="container">
+      <div class="section-head">
+        <div class="section-title"><h2>🖼️ Flyers</h2><span class="meta">Formato vertical 4:5</span></div>
+        <div class="share"><button class="icon-btn" onclick="copyLink('#flyers')">🔗</button></div>
+      </div>
+      <div class="gallery" id="flyerGallery">
+        <img src="flyer1.png" alt="Flyer 1" onclick="zoomImg(this)">
+        <img src="flyer2.png" alt="Flyer 2" onclick="zoomImg(this)">
+        <img src="flyer3.png" alt="Flyer 3" onclick="zoomImg(this)">
+        <img src="flyer4.png" alt="Flyer 4" onclick="zoomImg(this)">
+      </div>
+    </section>
+
+    <!-- LOGOS -->
+    <section id="logos" class="container">
+      <div class="section-head">
+        <div class="section-title"><h2>⚡ Logos</h2><span class="meta">Isologos y marcas</span></div>
+        <div class="share"><button class="icon-btn" onclick="copyLink('#logos')">🔗</button></div>
+      </div>
+      <div class="gallery">
+        <img src="logo1.png" alt="Logo 1" onclick="zoomImg(this)">
+        <img src="logo2.png" alt="Logo 2" onclick="zoomImg(this)">
+        <img src="logo3.png" alt="Logo 3" onclick="zoomImg(this)">
+        <img src="logo4.png" alt="Logo 4" onclick="zoomImg(this)">
+      </div>
+    </section>
+
+    <!-- WEBS -->
+    <section id="webs" class="container">
+      <div class="section-head">
+        <div class="section-title"><h2>🌐 Páginas Web</h2><span class="meta">Sitios desarrollados</span></div>
+        <div class="share"><button class="icon-btn" onclick="copyLink('#webs')">🔗</button></div>
+      </div>
+      <div class="grid cols-3 portfolio">
+        <article class="card"><h3>Sitio Demo 1</h3><p class="meta">TAXI</p><a class="btn" target="_blank" rel="noopener" href="https://example.com/sitio-a">Visitar</a></article>
+        <article class="card"><h3>Sitio Demo 2</h3><p class="meta">REPUESTOS</p><a class="btn" target="_blank" rel="noopener" href="https://www.repuestoppasociados.com/">Visitar</a></article>
+        <article class="card"><h3>Sitio Demo 3</h3><p class="meta">Corporativo • WordPress</p><a class="btn" target="_blank" rel="noopener" href="https://example.com/sitio-c">Visitar</a></article>
+      </div>
+    </section>
+
+    <!-- APPS PWA -->
+    <section id="pwa" class="container">
+      <div class="section-head">
+        <div class="section-title"><h2>📱 Aplicaciones PWA</h2><span class="meta">Instalables • Offline • Push</span></div>
+        <div class="share"><button class="icon-btn" onclick="copyLink('#pwa')">🔗</button></div>
+      </div>
+      <div class="grid cols-3">
+        <article class="card"><h3>PWA Demo 1</h3><p class="meta">Catálogo offline</p><a class="btn" target="_blank" rel="noopener" href="https://example.com/app1">Abrir</a></article>
+        <article class="card"><h3>PWA Demo 2</h3><p class="meta">Pedidos rápidos</p><a class="btn" target="_blank" rel="noopener" href="https://example.com/app2">Abrir</a></article>
+        <article class="card"><h3>PWA Demo 3</h3><p class="meta">Agenda & recordatorios</p><a class="btn" target="_blank" rel="noopener" href="https://example.com/app3">Abrir</a></article>
+      </div>
+  
+    </section>
+
+    <!-- POLÍTICA -->
+    <section id="politica" class="container">
+      <div class="section-head">
+        <div class="section-title"><h2>🔐 Política de seguridad</h2></div>
+        <div class="share"><button class="icon-btn" onclick="copyLink('#politica')">🔗</button></div>
+      </div>
+      <div class="card">
+        <p>Protegemos la información de nuestros clientes aplicando prácticas estándar de la industria. No compartimos datos con terceros sin consentimiento. Puedes solicitar acceso o eliminación de tus datos escribiendo a <a href="#contacto">Contacto</a>.</p>
+        <ul>
+          <li>Transmisión de archivos por enlaces privados.</li>
+          <li>Almacenamiento cifrado y acceso restringido.</li>
+          <li>Backups periódicos.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="container">
+      <div class="section-head">
+        <div class="section-title"><h2>💬 Contacto</h2><span class="meta">Respuesta rápida por WhatsApp o formulario</span></div>
+        <div class="share"><button class="icon-btn" onclick="copyLink('#contacto')">🔗</button></div>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <form id="contactForm" onsubmit="sendForm(event)">
+            <input type="text" name="name" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Tu correo" required>
+            <select name="tipo" required>
+              <option value="">Tipo de proyecto</option>
+              <option>Audio / Jingle</option>
+              <option>Radio online</option>
+              <option>Video (vertical)</option>
+              <option>Flyers</option>
+              <option>Logo</option>
+              <option>Página web</option>
+              <option>App PWA</option>
+            </select>
+            <textarea name="mensaje" placeholder="Cuéntame tu idea" required></textarea>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <button class="btn primary" type="submit">Enviar</button>
+              <a class="btn whatsapp" id="whatsappBottom" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+            </div>
+            <p class="note">El botón de WhatsApp abre un chat con un mensaje prellenado. También puedes integrar servicios como Formspree o tu backend.</p>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Datos</h3>
+          <p>WhatsApp: <a id="waLink" target="_blank" rel="noopener">+593 98 370 6294</a></p>
+          <p>Email: <a href="mailto:contacto@tusitio-ejemplo.com">contacto@tusitio-ejemplo.com</a></p>
+          <p>Ubicación: Ecuador • Servicios a EE.UU. y LatAm</p>
+          <p class="note">Comparte enlaces directos a cada sección usando el ícono 🔗 junto al título.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    © <span id="year"></span> Don Beltrán. Todos los derechos reservados.
+  </footer>
+
+  <!-- Lightbox muy simple -->
+  <div id="lightbox" style="position:fixed; inset:0; background:rgba(0,0,0,.9); display:none; place-items:center; z-index:60" onclick="this.style.display='none'">
+    <img id="lightboxImg" alt="Preview" style="max-width:92vw; max-height:92vh; border-radius:16px"/>
+  
+  <!-- CHAT (Web) conectado a n8n -->
+  <button id="chatFab" aria-label="Abrir chat">💬 Chat</button>
+
+  <div id="chatWin" role="dialog" aria-label="Chat de Don Beltrán">
+    <div id="chatHead">
+      <div>
+        <b>Asistente</b><div style="font-size:12px;color:var(--muted)">Responde 24/7</div>
+      </div>
+      <button id="chatClose" aria-label="Cerrar chat">✕</button>
+    </div>
+
+    <div id="chatMsgs"></div>
+    <div id="chatHint">Tip: pregunta por “precios”, “videos”, “marketing”, “páginas web”, “PWA”, “logos”, etc.</div>
+
+    <div id="chatFoot">
+      <input id="chatInput" placeholder="Escribe tu pregunta..." autocomplete="off" />
+      <button id="chatSend">Enviar</button>
+    </div>
+  </div>
+
+</div>
+
+  <script>
+    // CONFIG: tu WhatsApp en formato internacional sin '+'
+    const WHATSAPP_INTL = '593983706294'; // +593 98 370 6294
+
+    // Utilidades
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    // WhatsApp links
+    const waText = encodeURIComponent('Hola Don Beltrán, vi tu portafolio y quiero más información.');
+    const waHref = `https://wa.me/${WHATSAPP_INTL}?text=${waText}`;
+    document.getElementById('waLink').href = waHref;
+    document.getElementById('whatsappTop').href = waHref;
+    document.getElementById('whatsappBottom').href = waHref;
+
+    // Drawer
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    function openDrawer(){drawer.classList.add('open'); burger.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false');}
+    function closeDrawer(){drawer.classList.remove('open'); burger.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true');}
+    burger.addEventListener('click', ()=> drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+    drawer.addEventListener('click', (e)=>{ if(e.target===drawer) closeDrawer(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeDrawer(); });
+
+    // Share deep link
+    async function copyLink(hash){
+      const url = location.origin + location.pathname + hash;
+      try{ await navigator.clipboard.writeText(url); alert('Enlace copiado: ' + url);} catch(err){ prompt('Copia el enlace:', url); }
+    }
+    window.copyLink = copyLink;
+
+    // Lightbox
+    function zoomImg(img){
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      lbImg.src = img.src; lb.style.display='grid';
+    }
+    window.zoomImg = zoomImg;
+
+    // Envío de formulario (abre WhatsApp con los datos)
+    function sendForm(e){
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const msg = `Hola, soy ${data.get('name')} (%20${data.get('email')}%20).%0A`+
+                  `Estoy interesado en: ${data.get('tipo')}.%0A`+
+                  `Mensaje: ${encodeURIComponent(data.get('mensaje'))}`;
+      const href = `https://wa.me/${WHATSAPP_INTL}?text=${msg}`;
+      window.open(href, '_blank');
+    }
+    
+    // CHAT: Web -> n8n
+    // 1) Crea un Webhook en n8n (POST) y pega aquí la URL "Production".
+    const N8N_CHAT_WEBHOOK_URL = 'https://TU-URL-HTTPS-DE-N8N/webhook/chat';
+
+    const chatFab = document.getElementById('chatFab');
+    const chatWin = document.getElementById('chatWin');
+    const chatClose = document.getElementById('chatClose');
+    const chatMsgs = document.getElementById('chatMsgs');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+
+    const chatSessionId = localStorage.getItem('db_chat_session') || (crypto.randomUUID?.() || String(Date.now()));
+    localStorage.setItem('db_chat_session', chatSessionId);
+
+    function addMsg(text, who='bot'){
+      const row = document.createElement('div');
+      row.className = 'chatRow ' + (who === 'me' ? 'me' : 'bot');
+      const bubble = document.createElement('div');
+      bubble.className = 'chatBubble';
+      bubble.textContent = text;
+      row.appendChild(bubble);
+      chatMsgs.appendChild(row);
+      chatMsgs.scrollTop = chatMsgs.scrollHeight;
+    }
+
+    function openChat(){
+      chatWin.style.display = 'block';
+      if(!chatMsgs.dataset.started){
+        chatMsgs.dataset.started = '1';
+        addMsg('Hola 👋 Soy el asistente de Don Beltrán. ¿Qué servicio necesitas?');
+      }
+    }
+    function closeChat(){ chatWin.style.display = 'none'; }
+
+    async function sendChat(){
+      const message = chatInput.value.trim();
+      if(!message) return;
+      chatInput.value = '';
+      addMsg(message, 'me');
+
+      try{
+        const res = await fetch(N8N_CHAT_WEBHOOK_URL, {
+          method:'POST',
+          headers:{ 'Content-Type':'application/json' },
+          body: JSON.stringify({
+            sessionId: chatSessionId,
+            message,
+            page: location.href,
+            lang: document.documentElement.lang || 'es'
+          })
+        });
+
+        // Si n8n responde texto plano, también lo soportamos:
+        const ct = res.headers.get('content-type') || '';
+        const data = ct.includes('application/json') ? await res.json() : { reply: await res.text() };
+
+        addMsg(data.reply || 'Listo. ¿Algo más?');
+      }catch(e){
+        addMsg('Ahora mismo no puedo responder (sin conexión). Intenta en un momento.');
+      }
+    }
+
+    chatFab.addEventListener('click', openChat);
+    chatClose.addEventListener('click', closeChat);
+    chatSend.addEventListener('click', sendChat);
+    chatInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') sendChat(); });
+
+
+    // INTRO lógica: 5s cinematográfica con partículas
+    const intro = document.getElementById('intro');
+    const particles = document.getElementById('particles');
+    function spawnParticles(n=80){
+      for(let i=0;i<n;i++){
+        const p = document.createElement('span');
+        p.className = 'particle';
+        const angle = Math.random()*Math.PI*2; const dist = 120 + Math.random()*280;
+        p.style.left = '50%'; p.style.top = '50%';
+        p.style.setProperty('--dx', Math.cos(angle)*dist+'px');
+        p.style.setProperty('--dy', Math.sin(angle)*dist+'px');
+        p.style.animationDelay = (Math.random()*0.8)+'s';
+        particles.appendChild(p);
+      }
+    }
+    function hideIntro(skipped=false){
+      intro.classList.add('hidden');
+      setTimeout(()=>{ intro.style.display='none'; }, 1000);
+    }
+    spawnParticles(110);
+    // Ocultar intro automáticamente a los ~5s
+    setTimeout(hideIntro, 5200);
+
+    // Sugerencia PWA (si quieres hacer este sitio instalable):
+    // if('serviceWorker' in navigator){ navigator.serviceWorker.register('/sw.js'); }
+  </script>
+</body>
+</html>
